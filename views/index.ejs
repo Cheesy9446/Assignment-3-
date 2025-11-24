@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workout Tracker</title>
+  <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+
+  <%- include("partials/header") %>
+
+  <div class="center-content">
+    <h2>Welcome to your Workout Tracker</h2>
+    <p>Track your workouts and stay on top of your fitness goals.</p>
+
+    <a href="/workouts/add" class="btn-primary">Add a Workout</a>
+
+    <div class="recent-workouts">
+  <h3>Recent Workouts</h3>
+
+  <% if (workouts && workouts.length > 0) { %>
+    <ul>
+      <% workouts.forEach(function(workout) { %>
+        <li>
+    <strong><%= workout.name %></strong>
+     — <%= workout.sets %> sets x <%= workout.reps %> reps
+    <% if (workout.weight) { %>
+    @ <%= workout.weight %> kg
+    <% } %>
+    </li>
+    <% }); %>
+</ul>
+  <% } else { %>
+<p>No workouts added yet. Start by adding your first one!</p>
+  <% } %>
+</div>
+
+</div>
+
+  <%- include("partials/footer") %>
+
+</body>
+</html>
