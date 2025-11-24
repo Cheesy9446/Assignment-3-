@@ -1,3 +1,4 @@
+/* Main style on all pages */
 body {
   margin: 0;
   font-family: Arial;
@@ -7,6 +8,7 @@ body {
   min-height: 100vh;
 }
 
+/* Header */
 .site-header {
   background: black;
   color: white;
@@ -14,6 +16,7 @@ body {
   text-align: center;
 }
 
+/* Main input layout */
 .center-content {
   flex: 1;
   display: flex;
@@ -24,6 +27,7 @@ body {
   padding: 20px;
 }
 
+/* Main button */
 .btn-primary {
   display: inline-block;
   padding: 10px 20px;
@@ -31,13 +35,13 @@ body {
   background: black;
   color: white;
   text-decoration: none;
-  
 }
 
 .btn-primary:hover {
   background: gray;
 }
 
+/* Footer */
 .site-footer {
   background: black;
   color: white;
@@ -45,6 +49,7 @@ body {
   text-align: center;
 }
 
+/* Recent workouts */
 .recent-workouts {
   margin-top: 30px;
 }
@@ -57,6 +62,8 @@ body {
 .recent-workouts li {
   margin: 5px 0;
 }
+
+/* Main button */
 .actions {
   margin-left: 10px;
 }
@@ -72,7 +79,7 @@ body {
 
 .link-button {
   border: none;
-  background: none;
+ background: none;
   color: red;
   cursor: pointer;
   font-size: 0.9rem;
