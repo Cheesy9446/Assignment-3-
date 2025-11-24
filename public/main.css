@@ -57,3 +57,28 @@ body {
 .recent-workouts li {
   margin: 5px 0;
 }
+.actions {
+  margin-left: 10px;
+}
+
+.inline-form {
+  display: inline;
+}
+
+.link-small {
+  margin-right: 8px;
+  font-size: 0.9rem;
+}
+
+.link-button {
+  border: none;
+  background: none;
+  color: #c0392b;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+.link-button:hover {
+  text-decoration: underline;
+}

@@ -51,6 +51,49 @@ app.post("/workouts/add", async (req, res) => {
   }
 });
 
+app.get("/workouts/:id/edit", async (req, res) => {
+  try {
+    const workout = await Workout.findById(req.params.id).lean();
+    if (!workout) {
+      return res.status(404).send("Workout not found");
+    }
+    res.render("edit", { title: "Edit Workout", workout });
+  } catch (err) {
+    console.error("Error loading edit page:", err);
+    res.status(500).send("Server error loading edit page");
+  }
+});
+
+app.post("/workouts/:id/edit", async (req, res) => {
+  try {
+    const { name, sets, reps, weight, date } = req.body;
+
+    await Workout.findByIdAndUpdate(req.params.id, {
+      name,
+      sets,
+      reps,
+      weight,
+      date: date || Date.now()
+    });
+
+    res.redirect("/");
+  } catch (err) {
+    console.error("Error updating workout:", err);
+    res.status(500).send("Server error updating workout");
+  }
+});
+
+app.post("/workouts/:id/delete", async (req, res) => {
+  try {
+    await Workout.findByIdAndDelete(req.params.id);
+    res.redirect("/");
+  } catch (err) {
+    console.error("Error deleting workout:", err);
+    res.status(500).send("Server error deleting workout");
+  }
+});
+
+
 // Start server
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
